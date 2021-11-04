@@ -98,9 +98,15 @@ namespace Amazon.IonDotnet.Tests.Internals
 
 
 
+
+
+
+
+
+
         [TestMethod]
         [DataRow("2.e-1")]
-        public void TestNullFloat(string decimalString)
+        public void TestInvalidDecimal(string decimalString)
         {
             var bigDecimal = BigDecimal.Parse(decimalString);
             value.SetField("value", factory.NewDecimal(bigDecimal));
@@ -109,6 +115,15 @@ namespace Amazon.IonDotnet.Tests.Internals
             Console.WriteLine(this.sw.ToString());
             Assert.AreEqual("{\"value\":2.e-1}", this.sw.ToString());
         }
+
+
+
+
+
+
+
+
+
 
 
 
