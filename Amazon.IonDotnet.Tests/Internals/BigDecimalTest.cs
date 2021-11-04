@@ -169,7 +169,6 @@ namespace Amazon.IonDotnet.Tests.Internals
         public void Parse_Valid(string text, int expectedMag, int expectedScale)
         {
             var parsed = BigDecimal.Parse(text);
-            Assert.IsTrue(0 == 1);
             Assert.IsTrue(BigDecimal.TryParse(text, out var tryParsed));
             Assert.AreEqual(parsed, tryParsed);
             Assert.AreEqual(expectedMag, parsed.IntVal);
