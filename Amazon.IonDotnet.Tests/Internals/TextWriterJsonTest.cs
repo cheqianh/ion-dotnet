@@ -94,6 +94,25 @@ namespace Amazon.IonDotnet.Tests.Internals
             Assert.AreEqual("{\"value\":null}", this.sw.ToString());
         }
 
+
+
+
+
+        [TestMethod]
+        [DataRow("2.e-1")]
+        public void TestNullFloat(string decimalString)
+        {
+            var bigDecimal = BigDecimal.Parse(decimalString);
+            value.SetField("value", factory.NewDecimal(bigDecimal));
+            var reader = IonReaderBuilder.Build(value);
+            jsonWriter.WriteValues(reader);
+            Console.WriteLine(this.sw.ToString());
+            Assert.AreEqual("{\"value\":2.e-1}", this.sw.ToString());
+        }
+
+
+
+
         [TestMethod]
         [DataRow("1.23456d2")]
         [DataRow("1.23456d+2")]
