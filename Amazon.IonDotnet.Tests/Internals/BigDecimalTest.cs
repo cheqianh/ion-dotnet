@@ -193,7 +193,7 @@ namespace Amazon.IonDotnet.Tests.Internals
         }
 
         [TestMethod]
-        [DataRow("0", true)]
+        [DataRow("0", false)]
         [DataRow("0.", false)]
         [DataRow("0d0", false)]
         [DataRow("0d-0", false)]
