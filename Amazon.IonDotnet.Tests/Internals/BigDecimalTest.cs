@@ -165,7 +165,7 @@ namespace Amazon.IonDotnet.Tests.Internals
         [DataRow("-123.456d-42", -123456, 42 + 3)]
         [DataRow("77777.7d+00700", 777777, -700 + 1)]
         [DataRow("77777.7d-00700", 777777, 700 + 1)]
-        [DataRow("-0d-1", 0, 1)]
+        [DataRow("-0fd-11212", 0, 1)]
         public void Parse_Valid(string text, int expectedMag, int expectedScale)
         {
             var parsed = BigDecimal.Parse(text);

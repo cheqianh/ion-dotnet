@@ -24,9 +24,3 @@ jobs:
         run: dotnet build --configuration Release
       - name: Project Test
         run: dotnet test --configuration Release --no-build --no-restore --verbosity normal --framework ${{ matrix.dotnet }}
-
-      - name: ls
-        run: ls
-
-      - name: test
-        run: dotnet Amazon.IonDotnet/test.cs
