@@ -22,8 +22,7 @@ jobs:
           dotnet-version: ${{ matrix.dotnet }}
       - name: Project Build
         run: dotnet build --configuration Release
-      - name: Project Test
-        run: dotnet test --configuration Release --no-build --no-restore --verbosity normal --framework ${{ matrix.dotnet }}
-
-      - name: Project Test
-        run: dotnet test --framework ${{ matrix.dotnet }}
+#      - name: Project Test
+#        run: dotnet test --configuration Release --no-build --no-restore --verbosity normal --framework ${{ matrix.dotnet }}
+      - name: test
+        run: cd Amazon.IonDotnet.Tests && dotnet test -c Release && dotnet test
