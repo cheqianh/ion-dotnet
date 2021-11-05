@@ -108,7 +108,7 @@ namespace Amazon.IonDotnet.Tests.Internals
             jsonWriter.WriteValues(reader);
             Assert.AreEqual("{\"value\":null}", this.sw.ToString());
         }
- 
+
         [TestMethod]
         [DataRow("1.23456d2")]
         [DataRow("1.23456d+2")]
