@@ -54,10 +54,10 @@ namespace Amazon.IonDotnet.Tests.Internals
             String s = factory.NewDecimal(bigDecimal).ToPrettyString();
             Assert.AreEqual("2.d-1", s);
 
-            value.SetField("value", factory.NewDecimal(bigDecimal));
-            var reader = IonReaderBuilder.Build(value);
-            jsonWriter.WriteValues(reader);
-            Assert.AreEqual("{\"value\":2.e-1}", this.sw.ToString());
+//            value.SetField("value", factory.NewDecimal(bigDecimal));
+//            var reader = IonReaderBuilder.Build(value);
+//            jsonWriter.WriteValues(reader);
+//            Assert.AreEqual("{\"value\":2.e-1}", this.sw.ToString());
         }
 
 
