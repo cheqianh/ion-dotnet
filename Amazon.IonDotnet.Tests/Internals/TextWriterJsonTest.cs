@@ -48,21 +48,18 @@ namespace Amazon.IonDotnet.Tests.Internals
 
         [TestMethod]
         [DataRow("0.2")]
-        public void TestInvalidDecimal(string decimalString)
+        [DataRow("2.d-1")]
+        [DataRow("2d-1")]
+        public void TestMismatchDecimal(string decimalString)
         {
             var bigDecimal = BigDecimal.Parse(decimalString);
+            
             value.SetField("value", factory.NewDecimal(bigDecimal));
             var reader = IonReaderBuilder.Build(value);
             jsonWriter.WriteValues(reader);
+            
             Assert.AreEqual("{\"value\":2e-1}", this.sw.ToString());
         }
-
-
-
-
-
-
-
 
         [TestMethod]
         public void TestGenericNull()
