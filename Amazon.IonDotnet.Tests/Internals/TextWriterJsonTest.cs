@@ -47,6 +47,31 @@ namespace Amazon.IonDotnet.Tests.Internals
         }
 
         [TestMethod]
+        [DataRow("0.2")]
+        public void TestInvalidDecimal(string decimalString)
+        {
+            var bigDecimal = BigDecimal.Parse(decimalString);
+            String s = factory.NewDecimal(bigDecimal).ToPrettyString();
+            Assert.AreEqual(s, "0.2");
+
+
+
+
+//            value.SetField("value", factory.NewDecimal(bigDecimal));
+//            var reader = IonReaderBuilder.Build(value);
+//            jsonWriter.WriteValues(reader);
+//            Console.WriteLine(this.sw.ToString());
+//            Assert.AreEqual("{\"value\":2.e-1}", this.sw.ToString());
+        }
+
+
+
+
+
+
+
+
+        [TestMethod]
         public void TestGenericNull()
         {
             value.SetField("value", factory.NewNull());
@@ -103,18 +128,6 @@ namespace Amazon.IonDotnet.Tests.Internals
 
 
 
-
-        [TestMethod]
-        [DataRow("2.e-1")]
-        public void TestInvalidDecimal(string decimalString)
-        {
-            var bigDecimal = BigDecimal.Parse(decimalString);
-            value.SetField("value", factory.NewDecimal(bigDecimal));
-            var reader = IonReaderBuilder.Build(value);
-            jsonWriter.WriteValues(reader);
-            Console.WriteLine(this.sw.ToString());
-            Assert.AreEqual("{\"value\":2.e-1}", this.sw.ToString());
-        }
 
 
 
