@@ -52,7 +52,7 @@ namespace Amazon.IonDotnet.Tests.Internals
         {
             var bigDecimal = BigDecimal.Parse(decimalString);
             String s = factory.NewDecimal(bigDecimal).ToPrettyString();
-//            Assert.AreEqual("2.d-1", s);
+            Assert.AreEqual("2.d-1", s);
 
             value.SetField("value", factory.NewDecimal(bigDecimal));
             var reader = IonReaderBuilder.Build(value);
