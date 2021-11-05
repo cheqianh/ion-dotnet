@@ -217,6 +217,12 @@ namespace Amazon.IonDotnet.Internals.Text
             if (this.options.JsonDowngrade)
             {
                 var decimalString = value.ToString();
+                var index = decimalString.IndexOf('.', 0);
+                if (index != -1 && decimalString[index + 1] == 'd')
+                {
+                    decimalString = decimalString.Remove(index, 1);
+                }
+                
                 decimalString = decimalString.Replace('d', 'e');
                 this.textWriter.Write(decimalString);
             }

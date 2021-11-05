@@ -51,13 +51,13 @@ namespace Amazon.IonDotnet.Tests.Internals
         public void TestInvalidDecimal(string decimalString)
         {
             var bigDecimal = BigDecimal.Parse(decimalString);
+            // "2.d-1"
             String s = factory.NewDecimal(bigDecimal).ToPrettyString();
-            Assert.AreEqual(s, "2.d-1");
 
             value.SetField("value", factory.NewDecimal(bigDecimal));
             var reader = IonReaderBuilder.Build(value);
-            jsonWriter.WriteValues(reader);
-            Assert.AreEqual("{\"value\":2.e-1}", this.sw.ToString());
+            jsonWriter.WriteValue(reader);
+            Assert.AreEqual("{\"value\":2e-1}", this.sw.ToString());
         }
 
 
