@@ -450,6 +450,7 @@ namespace Amazon.IonDotnet
                 else
                 {
                     var d = this.Scale - (sb.Length - smallestDotIdx);
+                    sb.Insert(smallestDotIdx, '.');
                     sb.Append('d');
                     sb.Append(-d);
                 }

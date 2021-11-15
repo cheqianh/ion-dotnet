@@ -62,9 +62,9 @@ namespace Amazon.IonDotnet.Tests.Internals
         }
 
         [TestMethod]
-        [DataRow("-0.2")]
-        [DataRow("-2.d-1")]
-        [DataRow("-2d-1")]
+        [DataRow("-0.4")]
+        [DataRow("-4.d-1")]
+        [DataRow("-4d-1")]
         public void TestInvalidJsonNegativeDecimalFromIon(string decimalString)
         {
             var bigDecimal = BigDecimal.Parse(decimalString);
